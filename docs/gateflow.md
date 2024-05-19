@@ -1,6 +1,10 @@
+---
+layout: doc
+---
+
 # GateFlow
 
-<a href="//drive.google.com/u/0/uc?id=1khdOn-9qqM90tgaGY_aN74PopAVMjkR7&export=download">Download</a>
+<a href="https://drive.google.com/u/0/uc?id=1khdOn-9qqM90tgaGY_aN74PopAVMjkR7&export=download">Download</a>
 
 Software `Gate Flow` merupakan software gerbang logika yang bertujuan untuk memenuhi kebutuhan dan kelancaran proses belajar mengajar pada salah satu materi perkuliahan rangkaian digital.
 
@@ -148,48 +152,44 @@ import {
 
 const members = [
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'profile.jpg',
     name: 'Meily Adennia',
-    title: '2320506032',
+    title: '2310506013',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://instagram.com/meily.adn' }
     ]
   },
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'profile.jpg',
     name: 'Armando Firlian Ihza Yulianton',
-    title: '2320506032',
+    title: '2310506016',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://instagram.com' }
     ]
   },
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'profile.jpg',
     name: 'Athifah Mufidah',
-    title: '2320506032',
+    title: '2320506000',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://instagram.com' }
     ]
   },
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'profile.jpg',
     name: 'Wahyu Nur Hidayat',
-    title: '2320506032',
+    title: '2320506027',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://instagram.com' }
     ]
   },
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'dika.jpg',
     name: 'Dika Elsaputra',
     title: '2320506032',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'github', link: 'https://github.com/figuran04' },
+      { icon: 'instagram', link: 'https://instagram.com/figuran_04' }
     ]
   },
 ]
@@ -201,7 +201,7 @@ const members = [
       Tim Kami
     </template>
     <template #lead>
-      Pengembangan MatrixXpert dibangun oleh tim mahasiswa Teknologi Informasi, semuanya telah memilih untuk ditampilkan di bawah ini.
+      Pengembangan GateFlow dibangun oleh tim mahasiswa Teknologi Informasi, semuanya telah memilih untuk ditampilkan di bawah ini.
     </template>
   </VPTeamPageTitle>
   <VPTeamMembers

@@ -5,14 +5,13 @@ const hostname = "https://figuran04.github.io"
 export default defineConfig({
   title: "Dika Elsaputra",
   description: "Dokumentasi",
-  base: "/figuran04/",
   head: [
     [
       "link",
       {
         rel: "icon",
         type: "image/svg+xml",
-        href: "/logo.svg",
+        href: "./logo.svg",
       },
     ],
   ],
@@ -21,7 +20,7 @@ export default defineConfig({
     editLink: false,
     smoothScrolling: true,
     docsDir: "",
-    logo: "/images/logo.svg",
+    logo: "./logo.svg",
     nav: [
       { text: "Beranda", link: "/" },
       {

@@ -4,27 +4,134 @@ layout: doc
 
 # MatrixXpert
 
-Program ini adalah sebuah aplikasi kalkulator matriks berbasis GUI (Graphical User Interface) yang dibuat menggunakan pustaka `customtkinter` dan `numpy`. Aplikasi ini menyediakan fungsi untuk menghitung invers, determinan, dan transpose dari sebuah matriks. Program ini juga memungkinkan pengguna untuk mengatur ukuran matriks menggunakan slider dan menampilkan hasil penghitungan beserta riwayat penghitungan.
+<a href="https://drive.google.com/u/0/uc?id=1I2sF6WMHtGfIhnadrO2cAr8gO0k1Mdjf&export=download">Download</a>
 
-## Struktur Kode
+Software MatrixXpert adalah sebuah aplikasi berbasis GUI (Graphical User Interface) yang dibuat menggunakan library `customtkinter` dan `numpy`. Aplikasi ini menyediakan fitur-fitur untuk melakukan operasi dasar pada matriks seperti menghitung invers, determinan, dan transpose dari matriks yang diinput oleh pengguna. Program ini dikembangkan oleh Kelompok 5.
 
-Kode ini terdiri dari beberapa bagian:
+## Fitur Utama
 
-1.  [Inisialisasi dan Pengaturan Tampilan](#_1-inisialisasi-dan-pengaturan-tampilan)
-2.  [Definisi Kelas MatrixCalc](#_2-definisi-kelas-matrixcalc)
-    - [Inisialisasi GUI](#a-inisialisasi-gui)
-    - [Frame dan Label](#b-frame-dan-label)
-    - [Slider untuk Mengatur Ukuran Matriks](#c-slider-untuk-mengatur-ukuran-matriks)
-    - [Bidang Input Matriks](#d-bidang-input-matriks)
-    - [Frame Hasil dan Tombol Operasi](#e-frame-hasil-dan-tombol-operasi)
-3.  [Metode untuk Mengelola Event dan Penghitungan](#_3-metode-untuk-mengelola-event-dan-penghitungan)
-    - [Mengubah Mode Tampilan](#a-mengubah-mode-tampilan)
-    - [Mengelola Entri Matriks](#b-mengelola-entri-matriks)
-    - [Fungsi Penghitungan Matriks](#c-fungsi-penghitungan-matriks)
+1. **Input Dinamis**: Pengguna dapat menyesuaikan jumlah baris dan kolom matriks menggunakan slider.
+2. **Operasi Matriks**:
+   - Menghitung invers matriks
+   - Menghitung determinan matriks
+   - Menghitung transpose matriks
+3. **Tampilan yang Dapat Disesuaikan**: Pengguna dapat mengubah mode tampilan antara "light" dan "dark".
 
-## 1. Inisialisasi dan Pengaturan Tampilan
+## Struktur Program
 
-Pada bagian ini, mode tampilan diatur ke mode "light", dan pengaturan skala widget serta window dilakukan.
+### 1. Import Library
+
+```python
+from customtkinter import *
+import numpy as np
+```
+
+Library `customtkinter` digunakan untuk membuat antarmuka pengguna, sedangkan `numpy` digunakan untuk melakukan operasi matriks.
+
+### 2. Pengaturan Awal
+
+```python
+mode = "light"
+set_appearance_mode(mode)
+set_widget_scaling(1)
+set_window_scaling(1)
+```
+
+Mengatur mode tampilan awal dan skala widget serta jendela.
+
+### 3. Kelas `MatrixCalc`
+
+Kelas `MatrixCalc` merupakan turunan dari kelas `CTk` yang mengimplementasikan antarmuka dan logika aplikasi.
+
+#### a. Inisialisasi
+
+```python
+class MatrixCalc(CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("Matrix Kalkulator by Kelompok 5")
+        self.geometry("625x450")
+        ...
+```
+
+Metode `__init__` menginisialisasi jendela utama dan mengatur tata letak elemen GUI.
+
+#### b. Switch Mode Tampilan
+
+```python
+def switch_event(self):
+    global mode
+    mode = self.switch_var.get()
+    set_appearance_mode(mode)
+    self.update_widgets()
+```
+
+Metode ini digunakan untuk mengubah mode tampilan antara "light" dan "dark".
+
+#### c. Pembuatan dan Pembaruan Entry Fields
+
+```python
+def create_entries(self):
+    ...
+
+def update_entries(self, event):
+    ...
+```
+
+Metode `create_entries` dan `update_entries` bertanggung jawab untuk membuat dan memperbarui entry fields untuk input matriks berdasarkan nilai slider.
+
+#### d. Mengambil Data Matriks dari Entry Fields
+
+```python
+def get_matrix_from_entries(self):
+    ...
+```
+
+Metode ini mengumpulkan data dari entry fields dan mengubahnya menjadi array numpy.
+
+#### e. Menampilkan Hasil
+
+```python
+def display_result(self, result):
+    ...
+```
+
+Metode ini menampilkan hasil operasi matriks pada label hasil dan menambahkan ke riwayat penghitungan.
+
+#### f. Operasi Matriks
+
+```python
+def find_inverse(self):
+    ...
+
+def find_determinant(self):
+    ...
+
+def find_transpose(self):
+    ...
+```
+
+Metode `find_inverse`, `find_determinant`, dan `find_transpose` melakukan operasi matriks yang sesuai dan menampilkan hasilnya.
+
+### 4. Menjalankan Aplikasi
+
+```python
+app = MatrixCalc()
+app.mainloop()
+```
+
+Bagian ini membuat instance dari kelas `MatrixCalc` dan menjalankan loop utama aplikasi.
+
+## Cara Penggunaan
+
+<a href="https://drive.google.com/u/0/uc?id=1I2sF6WMHtGfIhnadrO2cAr8gO0k1Mdjf&export=download">Download</a>
+
+1. **Menyesuaikan Ukuran Matriks**: Gunakan slider untuk menentukan jumlah baris dan kolom matriks.
+2. **Mengisi Matriks**: Masukkan nilai-nilai matriks pada entry fields yang tersedia.
+3. **Operasi Matriks**: Klik tombol "Inverse", "Determinant", atau "Transpose" untuk melakukan operasi yang diinginkan.
+4. **Mengubah Mode Tampilan**: Gunakan switch untuk beralih antara mode "light" dan "dark".
+
+## Kode Sumber Lengkap
 
 ```python
 from customtkinter import *
@@ -34,17 +141,7 @@ mode = "light"
 set_appearance_mode(mode)
 set_widget_scaling(1)
 set_window_scaling(1)
-```
 
-## 2. Definisi Kelas `MatrixCalc`
-
-Kelas `MatrixCalc` adalah turunan dari `CTk`, yang merupakan kerangka utama untuk GUI aplikasi ini.
-
-### a. Inisialisasi GUI
-
-Metode `__init__` menginisialisasi GUI, mengatur judul, ukuran, dan tata letak window.
-
-```python
 class MatrixCalc(CTk):
     def __init__(self):
         super().__init__()
@@ -53,13 +150,7 @@ class MatrixCalc(CTk):
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure(2, weight=1)
         self.minsize(500, 350)
-```
 
-### b. Frame dan Label
-
-Membuat frame untuk judul aplikasi dan menambahkan label "Matrix Calculator" serta switch untuk mengganti mode tampilan.
-
-```python
         # Frame Judul
         self.framej = CTkFrame(self, border_width=2)
         self.framej.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="nswe")
@@ -70,15 +161,18 @@ Membuat frame untuk judul aplikasi dan menambahkan label "Matrix Calculator" ser
         self.label.grid(row=0, column=0, padx=15, pady=10, sticky="nsw")
 
         self.switch_var = StringVar(value="light")
-        self.switch = CTkSwitch(self.framej, text="", command=self.switch_event, width=5, variable=self.switch_var, onvalue="light", offvalue="dark")
+        self.switch = CTkSwitch(self.framej, text="", command=self.switch_event, width=5,
+            variable=self.switch_var, onvalue="light", offvalue="dark")
         self.switch.grid(row=0, column=1, pady=0, padx=5, sticky="e")
-```
 
-### c. Slider untuk Mengatur Ukuran Matriks
+        # Frame Main
+        self.frame_main2 = CTkFrame(self, border_width=2)
+        self.frame_main2.grid(row=1, column=0, pady=(10, 5), sticky="ns")
+        self.frame_main2.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), weight=1)
+        self.frame_main = CTkFrame(self, border_width=2)
+        self.frame_main.grid(row=2, column=0, padx=10, pady=10, sticky="swe")
+        self.frame_main.grid_columnconfigure((0, 1), weight=1)
 
-Menambahkan slider untuk mengatur jumlah kolom dan baris dari matriks, beserta label untuk menampilkan nilai slider.
-
-```python
         # Slider Option
         self.slidercol = CTkSlider(master=self.frame_main, from_=1, to=10, number_of_steps=9, orientation='horizontal')
         self.slidercol.grid(row=0, column=1, padx=10, pady=5, sticky="we")
@@ -95,23 +189,11 @@ Menambahkan slider untuk mengatur jumlah kolom dan baris dari matriks, beserta l
 
         self.label_sliderrow = CTkLabel(master=self.frame_main, text="Baris: 5", font=("Arial", 14))
         self.label_sliderrow.grid(row=1, column=0, padx=10, pady=5, sticky="w")
-```
 
-### d. Bidang Input Matriks
-
-Menambahkan entri untuk input elemen matriks berdasarkan nilai dari slider.
-
-```python
         # Entry Fields
         self.entries = []
         self.create_entries()
-```
 
-### e. Frame Hasil dan Tombol Operasi
-
-Membuat frame untuk hasil penghitungan serta menambahkan tombol untuk menghitung invers, determinan, dan transpose matriks.
-
-```python
         # Frame Hasil
         self.frame_hasil = CTkFrame(self, border_width=2)
         self.frame_hasil.grid(row=0, column=1, padx=(0, 10), pady=10, sticky="nswe", rowspan=3)
@@ -135,27 +217,27 @@ Membuat frame untuk hasil penghitungan serta menambahkan tombol untuk menghitung
         self.history_text = CTkTextbox(master=self.frame_hasil, height=200, width=30)
         self.history_text.grid(row=4, column=0, padx=10, pady=(5, 10), sticky="nswe")
         self.history_text.configure(state='disabled')
-```
 
-## 3. Metode untuk Mengelola Event dan Penghitungan
-
-### a. Mengubah Mode Tampilan
-
-Metode `switch_event` untuk mengubah mode tampilan aplikasi.
-
-```python
     def switch_event(self):
         global mode
         mode = self.switch_var.get()
         set_appearance_mode(mode)
         self.update_widgets()
-```
 
-### b. Mengelola Entri Matriks
+    def update_widgets(self):
+        # Mengatur ulang tampilan widget dengan mode yang baru
+        pass
 
-Metode `create_entries` dan `update_entries` untuk membuat dan memperbarui entri matriks sesuai dengan nilai slider.
+    # menghilangkan koma 0
+    def zero(self, integer):
+        try:
+            float_value = float(integer)
+            if float_value == int(float_value):
+                return int(float_value)
+            return float_value
+        except ValueError:
+            return None
 
-```python
     def create_entries(self):
         for row in range(int(self.sliderrow.get())):
             row_entries = []
@@ -178,13 +260,7 @@ Metode `create_entries` dan `update_entries` untuk membuat dan memperbarui entri
         # Update slider labels
         self.label_slidercol.configure(text=f"Kolom: {self.zero(self.slidercol.get())}")
         self.label_sliderrow.configure(text=f"Baris: {self.zero(self.sliderrow.get())}")
-```
 
-### c. Fungsi Penghitungan Matriks
-
-Metode untuk mendapatkan matriks dari entri, menampilkan hasil, dan melakukan operasi matriks (inverse, determinan, transpose).
-
-```python
     def get_matrix_from_entries(self):
         matrix = []
         for row_entries in self.entries:
@@ -223,23 +299,10 @@ Metode untuk mendapatkan matriks dari entri, menampilkan hasil, dan melakukan op
             self.display_result("Transpose:\n" + str(transpose))
         except Exception as e:
             self.display_result("Error: " + str(e))
-```
 
-## Menjalankan Program
-
-Untuk menjalankan program ini, cukup buat instance dari kelas `MatrixCalc` dan panggil `mainloop`.
-
-```python
 app = MatrixCalc()
 app.mainloop()
 ```
-
-::: info
-
-1. Program ini menggunakan pustaka `customtkinter` yang perlu diinstal terlebih dahulu.
-2. Pastikan juga pustaka `numpy` telah terinstal untuk melakukan operasi matriks.
-
-:::
 
 <script setup>
 import {
@@ -250,21 +313,44 @@ import {
 
 const members = [
   {
-    avatar: 'https://www.github.com/yyx990803.png',
-    name: 'Evan You',
-    title: 'Creator',
+    avatar: 'safiul.jpg',
+    name: 'Muhammad Safiul Rifki',
+    title: '2310506005',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://www.instagram.com/_safiulrifki/' },
     ]
   },
   {
-    avatar: 'https://www.github.com/yyx990803.png',
-    name: 'Evan You',
-    title: 'Creator',
+    avatar: 'wiyandra.jpg',
+    name: 'Wiyandra Syaiful Abidin',
+    title: '2310506009',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'instagram', link: 'https://instagram.com/wiyandra.sfl' },
+    ]
+  },
+  {
+    avatar: 'profile.jpg',
+    name: 'Meily Adennia',
+    title: '2310506013',
+    links: [
+      { icon: 'instagram', link: 'https://instagram.com/meily.adn' },
+    ]
+  },
+  {
+    avatar: 'defa.jpg',
+    name: 'Defa Augista Montaine Dhanarto Putera',
+    title: '2320506028',
+    links: [
+      { icon: 'instagram', link: 'https://instagram.com/putra1029384756' },
+    ]
+  },
+  {
+    avatar: 'dika.jpg',
+    name: 'Dika Elsaputra',
+    title: '2320506032',
+    links: [
+      { icon: 'github', link: 'https://github.com/figuran04' },
+      { icon: 'instagram', link: 'https://instagram.com/figuran_04' },
     ]
   },
 ]
