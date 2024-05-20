@@ -9,13 +9,13 @@ hero:
   #   src: /images/logo.svg
   #   alt: "Hero Image"
 features:
-  - icon: 🛠️
+  - icon: 🚀
     title: Debugging Reality, One Algorithm at a Time
     details: Pemburu bug, memecahkan masalah di dunia nyata melalui algoritma dan pemecahan masalah yang sistematis.
-  - icon: 📝
+  - icon: 🛠️
     title: Crafting Possibilities Through Code
     details: Langkah kecil menuju realisasi berbagai kemungkinan dan inovasi teknologi.
-  - icon: 🚀
+  - icon: 📝
     title: Bringing Ideas to Life in Binary
     details: Pemanggil ide, mengubah konsep abstrak menjadi aplikasi, software, dan sistem yang dapat dijalankan oleh komputer.
 ---

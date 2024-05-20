@@ -6,7 +6,7 @@ layout: doc
 
 <a href="https://drive.google.com/u/0/uc?id=1I2sF6WMHtGfIhnadrO2cAr8gO0k1Mdjf&export=download">Download</a>
 
-Software MatrixXpert adalah sebuah aplikasi berbasis GUI (Graphical User Interface) yang dibuat menggunakan library `customtkinter` dan `numpy`. Aplikasi ini menyediakan fitur-fitur untuk melakukan operasi dasar pada matriks seperti menghitung invers, determinan, dan transpose dari matriks yang diinput oleh pengguna. Program ini dikembangkan oleh Kelompok 5.
+Software MatrixXpert adalah sebuah aplikasi berbasis GUI (Graphical User Interface) yang dibuat menggunakan library `customtkinter` dan `numpy`. Aplikasi ini menyediakan fitur-fitur untuk melakukan operasi dasar pada matriks seperti menghitung invers, determinan, dan transpose dari matriks yang diinput oleh pengguna.
 
 ## Fitur Utama
 
