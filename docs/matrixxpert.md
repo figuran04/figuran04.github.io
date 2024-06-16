@@ -4,7 +4,7 @@ layout: doc
 
 # MatrixXpert
 
-<a href="https://drive.google.com/u/0/uc?id=1I2sF6WMHtGfIhnadrO2cAr8gO0k1Mdjf&export=download">Download</a>
+<a href="https://drive.google.com/u/0/uc?id=1I2sF6WMHtGfIhnadrO2cAr8gO0k1Mdjf&export=download" target="blank">Download</a>
 
 Software MatrixXpert adalah sebuah aplikasi berbasis GUI (Graphical User Interface) yang dibuat menggunakan library `customtkinter` dan `numpy`. Aplikasi ini menyediakan fitur-fitur untuk melakukan operasi dasar pada matriks seperti menghitung invers, determinan, dan transpose dari matriks yang diinput oleh pengguna.
 
@@ -136,12 +136,10 @@ Bagian ini membuat instance dari kelas `MatrixCalc` dan menjalankan loop utama a
 ```python
 from customtkinter import *
 import numpy as np
-
 mode = "light"
 set_appearance_mode(mode)
 set_widget_scaling(1)
 set_window_scaling(1)
-
 class MatrixCalc(CTk):
     def __init__(self):
         super().__init__()
@@ -150,85 +148,56 @@ class MatrixCalc(CTk):
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure(2, weight=1)
         self.minsize(500, 350)
-
-        # Frame Judul
         self.framej = CTkFrame(self, border_width=2)
         self.framej.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="nswe")
         self.framej.grid_columnconfigure(0, weight=1)
-
-        # Judul Aplikasi
         self.label = CTkLabel(master=self.framej, text="Matrix Calculator", font=("Arial", 20, "bold"))
         self.label.grid(row=0, column=0, padx=15, pady=10, sticky="nsw")
-
         self.switch_var = StringVar(value="light")
         self.switch = CTkSwitch(self.framej, text="", command=self.switch_event, width=5,
             variable=self.switch_var, onvalue="light", offvalue="dark")
         self.switch.grid(row=0, column=1, pady=0, padx=5, sticky="e")
-
-        # Frame Main
         self.frame_main2 = CTkFrame(self, border_width=2)
         self.frame_main2.grid(row=1, column=0, pady=(10, 5), sticky="ns")
         self.frame_main2.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), weight=1)
         self.frame_main = CTkFrame(self, border_width=2)
         self.frame_main.grid(row=2, column=0, padx=10, pady=10, sticky="swe")
         self.frame_main.grid_columnconfigure((0, 1), weight=1)
-
-        # Slider Option
         self.slidercol = CTkSlider(master=self.frame_main, from_=1, to=10, number_of_steps=9, orientation='horizontal')
         self.slidercol.grid(row=0, column=1, padx=10, pady=5, sticky="we")
         self.slidercol.bind("<ButtonRelease-1>", self.update_entries)
         self.slidercol.set(5)
-
         self.label_slidercol = CTkLabel(master=self.frame_main, text="Kolom: 5", font=("Arial", 14))
         self.label_slidercol.grid(row=0, column=0, padx=10, pady=5, sticky="w")
-
         self.sliderrow = CTkSlider(master=self.frame_main, from_=1, to=10, number_of_steps=9, orientation='horizontal')
         self.sliderrow.grid(row=1, column=1, padx=10, pady=5, sticky="we")
         self.sliderrow.bind("<ButtonRelease-1>", self.update_entries)
         self.sliderrow.set(5)
-
         self.label_sliderrow = CTkLabel(master=self.frame_main, text="Baris: 5", font=("Arial", 14))
         self.label_sliderrow.grid(row=1, column=0, padx=10, pady=5, sticky="w")
-
-        # Entry Fields
         self.entries = []
         self.create_entries()
-
-        # Frame Hasil
         self.frame_hasil = CTkFrame(self, border_width=2)
         self.frame_hasil.grid(row=0, column=1, padx=(0, 10), pady=10, sticky="nswe", rowspan=3)
         self.frame_hasil.grid_columnconfigure(0, weight=1)
-
-        # Buttons
         self.button_inverse = CTkButton(master=self.frame_hasil, text="Inverse", command=self.find_inverse, font=("Arial", 14))
         self.button_inverse.grid(row=0, column=0, padx=15, pady=(10, 5), sticky="we")
-
         self.button_determinant = CTkButton(master=self.frame_hasil, text="Determinant", command=self.find_determinant, font=("Arial", 14))
         self.button_determinant.grid(row=1, column=0, padx=15, pady=5, sticky="we")
-
         self.button_transpose = CTkButton(master=self.frame_hasil, text="Transpose", command=self.find_transpose, font=("Arial", 14))
         self.button_transpose.grid(row=2, column=0, padx=15, pady=5, sticky="we")
-
-        # Hasil
         self.label_hasil = CTkLabel(master=self.frame_hasil, text="Hasil :", font=("Arial", 14), wraplength=280, justify="left")
         self.label_hasil.grid(row=3, column=0, padx=15, pady=10, sticky="w")
-
-        # Riwayat Penghitungan
         self.history_text = CTkTextbox(master=self.frame_hasil, height=200, width=30)
         self.history_text.grid(row=4, column=0, padx=10, pady=(5, 10), sticky="nswe")
         self.history_text.configure(state='disabled')
-
     def switch_event(self):
         global mode
         mode = self.switch_var.get()
         set_appearance_mode(mode)
         self.update_widgets()
-
     def update_widgets(self):
-        # Mengatur ulang tampilan widget dengan mode yang baru
         pass
-
-    # menghilangkan koma 0
     def zero(self, integer):
         try:
             float_value = float(integer)
@@ -237,7 +206,6 @@ class MatrixCalc(CTk):
             return float_value
         except ValueError:
             return None
-
     def create_entries(self):
         for row in range(int(self.sliderrow.get())):
             row_entries = []
@@ -246,36 +214,25 @@ class MatrixCalc(CTk):
                 entry.grid(row=row, column=col, sticky="we")
                 row_entries.append(entry)
             self.entries.append(row_entries)
-
     def update_entries(self, event):
-        # Clear existing entries
         for row in self.entries:
             for entry in row:
                 entry.destroy()
         self.entries.clear()
-
-        # Recreate entries based on slider values
         self.create_entries()
-
-        # Update slider labels
         self.label_slidercol.configure(text=f"Kolom: {self.zero(self.slidercol.get())}")
         self.label_sliderrow.configure(text=f"Baris: {self.zero(self.sliderrow.get())}")
-
     def get_matrix_from_entries(self):
         matrix = []
         for row_entries in self.entries:
             row_values = [self.zero(entry.get()) for entry in row_entries]
             matrix.append(row_values)
         return np.array(matrix)
-
     def display_result(self, result):
         self.label_hasil.configure(text=result)
-
-        # Update history
         self.history_text.configure(state='normal')
         self.history_text.insert('end', result + '\n\n')
         self.history_text.configure(state='disabled')
-
     def find_inverse(self):
         try:
             matrix = self.get_matrix_from_entries()
@@ -283,15 +240,13 @@ class MatrixCalc(CTk):
             self.display_result("Inverse:\n" + str(inverse))
         except Exception as e:
             self.display_result("Error: " + str(e))
-
     def find_determinant(self):
         try:
             matrix = self.get_matrix_from_entries()
             determinant = np.linalg.det(matrix)
-            self.display_result("Determinant: " + str(determinant))
+            self.display_result("Determinant: " + str(self.zero(determinant)))
         except Exception as e:
             self.display_result("Error: " + str(e))
-
     def find_transpose(self):
         try:
             matrix = self.get_matrix_from_entries()
@@ -299,7 +254,6 @@ class MatrixCalc(CTk):
             self.display_result("Transpose:\n" + str(transpose))
         except Exception as e:
             self.display_result("Error: " + str(e))
-
 app = MatrixCalc()
 app.mainloop()
 ```
@@ -313,7 +267,7 @@ import {
 
 const members = [
   {
-    avatar: 'safiul.jpg',
+    avatar: 'images/safiul.jpg',
     name: 'Muhammad Safiul Rifki',
     title: '2310506005',
     links: [
@@ -321,7 +275,7 @@ const members = [
     ]
   },
   {
-    avatar: 'wiyandra.jpg',
+    avatar: 'images/wiyandra.jpg',
     name: 'Wiyandra Syaiful Abidin',
     title: '2310506009',
     links: [
@@ -329,7 +283,7 @@ const members = [
     ]
   },
   {
-    avatar: 'profile.jpg',
+    avatar: 'images/profile.jpg',
     name: 'Meily Adennia',
     title: '2310506013',
     links: [
@@ -337,7 +291,7 @@ const members = [
     ]
   },
   {
-    avatar: 'defa.jpg',
+    avatar: 'images/defa.jpg',
     name: 'Defa Augista Montaine Dhanarto Putera',
     title: '2320506028',
     links: [
@@ -345,7 +299,7 @@ const members = [
     ]
   },
   {
-    avatar: 'dika.jpg',
+    avatar: 'images/dika.jpg',
     name: 'Dika Elsaputra',
     title: '2320506032',
     links: [

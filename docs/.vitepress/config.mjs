@@ -27,6 +27,10 @@ export default defineConfig({
         text: "Semester 1",
         items: [
           {
+            text: "Algoritma Pemrograman",
+            items: [{ text: "BarangKu", link: "/barangku" }],
+          },
+          {
             text: "Logika Matematika",
             items: [{ text: "GateFlow", link: "/gateflow" }],
           },
@@ -48,6 +52,10 @@ export default defineConfig({
         text: "Semester 1",
         items: [
           {
+            text: "Algoritma Pemrograman",
+            items: [{ text: "BarangKu", link: "/barangku" }],
+          },
+          {
             text: "Logika Matematika",
             items: [{ text: "GateFlow", link: "/gateflow" }],
           },
@@ -66,7 +74,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: "github", link: "https://github.com/figuran04" },
-      { icon: "instagram", link: "https://github.com/figuran04" },
+      { icon: "instagram", link: "https://instagram.com/figuran_04" },
     ],
     footer: {
       message:
