@@ -1,0 +1,1 @@
+import{_ as i,c as s,o as a,a3 as n}from"./chunks/framework.Da9NPsf7.js";const y=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"test.md","filePath":"test.md","lastUpdated":null}'),l={name:"test.md"},t=n("",93),h=[t];function e(k,p,d,r,E,g){return a(),s("div",null,h)}const F=i(l,[["render",e]]);export{y as __pageData,F as default};
