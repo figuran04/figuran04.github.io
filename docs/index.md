@@ -1,18 +1,38 @@
 ---
-layout: home
+layout: home # doc | home | page
+
+navbar: true # boolean
+sidebar: false # boolean
+aside: true # boolean | 'left'
+lastUpdated: true # boolean | Date
+editLink: true # boolean
+footer: true # boolean
+outline: false # number | [number, number] | 'deep' | false
+pageClass: custom-page-class
 
 hero:
   name: "Dika Elsaputra"
   text: "Dokumentasi"
-  tagline: My great project tagline
+  tagline: Memecahkan tantangan dunia nyata dengan inovasi digital.
   # image:
-  #   src: /images/logo.svg
+  #   src: /logo.svg
   #   alt: "Hero Image"
+  actions:
+    - theme: brand
+      text: Mulai
+      link: /barangku
+    - theme: alt
+      text: Lihat di Github
+      link: https://github.com/figuran04/figuran04.github.io
 features:
   - icon: 🚀
+    # src: /cool-feature-icon.svg
     title: Debugging Reality, One Algorithm at a Time
     details: Pemburu bug, memecahkan masalah di dunia nyata melalui algoritma dan pemecahan masalah yang sistematis.
-  - icon: 🛠️
+  - icon:
+      🛠️
+      # dark: /dark-feature-icon.svg
+      # light: /light-feature-icon.svg
     title: Crafting Possibilities Through Code
     details: Langkah kecil menuju realisasi berbagai kemungkinan dan inovasi teknologi.
   - icon: 📝

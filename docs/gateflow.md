@@ -212,7 +212,7 @@ const members = [
   },
   {
     avatar: 'images/profile.jpg',
-    name: 'Armando Firlian Ihza Yulianton',
+    name: 'Armando Firlian Ihza Yulianto',
     title: '2310506016',
     links: [
       { icon: 'instagram', link: 'https://instagram.com' }
