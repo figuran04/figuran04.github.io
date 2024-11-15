@@ -141,6 +141,13 @@ export default defineConfig({
         ariaLabel: "instagram link",
         target: "_blank",
       },
+      {
+        icon: "youtube",
+        link: "https://medium.com/@dikaelsaputra",
+        // You can include a custom label for accessibility too (optional but recommended):
+        ariaLabel: "medium link",
+        target: "_blank",
+      },
     ],
     footer: {
       message:
@@ -163,10 +170,10 @@ export default defineConfig({
     },
     // LastUpdatedOptions
     lastUpdated: {
-      text: "Updated at",
+      // text: "Updated at",
       formatOptions: {
         dateStyle: "full",
-        timeStyle: "medium",
+        // timeStyle: "medium",
       },
     },
     // CarbonAdsOptions
