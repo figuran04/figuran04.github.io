@@ -19,6 +19,10 @@ BarangKu
 └─ Customize.py
 ```
 
+## Flowchart
+
+![flowchart](images/barangku-flowchart.png)
+
 ## Modul `main.py`
 
 ### Import

@@ -1,6 +1,6 @@
-import { defineConfig } from "vitepress"
+import { defineConfig } from "vitepress";
 
-const hostname = "https://figuran04.github.io"
+const hostname = "https://figuran04.github.io";
 
 export default defineConfig({
   title: "Dika Elsaputra",
@@ -72,7 +72,7 @@ export default defineConfig({
         items: [
           {
             text: "PBO",
-            items: [{ text: "Coming soon", link: "/comingsoon" }],
+            items: [{ text: "Taskova", link: "/taskovaa" }],
           },
         ],
       },
@@ -110,7 +110,7 @@ export default defineConfig({
           items: [
             {
               text: "PBO",
-              items: [{ text: "Coming Soon", link: "/comingsoon" }],
+              items: [{ text: "Taskova", link: "/taskovaa" }],
             },
           ],
         },
@@ -226,4 +226,4 @@ export default defineConfig({
   //     return url.toLowerCase().includes("ignore")
   //   },
   // ],
-})
+});
